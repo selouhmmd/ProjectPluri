@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ESIBIB_Student.Views.BooksList">
+    <!-- This is the search bar that shows on top of the page -->
+    <NavigationPage.TitleView>
+        <SearchBar Placeholder="Search ... " Visual="Material" TextChanged="SearchBar_TextChanged"/>
+    </NavigationPage.TitleView>
+    <!-- These Are The Elements of the three dots menu -->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Advanced Search" Order="Secondary" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <!-- THis is the list of items -->
+    <StackLayout>
+        <ListView x:Name="bookList" HasUnevenRows="True"
+                  ItemTapped="bookList_ItemTapped"
+                  IsPullToRefreshEnabled="True" Refreshing="bookList_Refreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <!-- Each Element of the list will be displayed according to this stack layout -->
+                        <StackLayout Orientation="Horizontal" Padding="10" Visual="Material">
+                            <Image Source="{Binding Coverurl}" HeightRequest="100"/>
+                            <StackLayout HorizontalOptions="StartAndExpand">
+                                <Label Text="{Binding Title}" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="{Binding Writer}" FontSize="10"/>
+                                <Label Text="{Binding Nbr,StringFormat='Number : {0}'}" FontSize="10" FontAttributes="Bold"/>
+                                <Label Text="{Binding Available,StringFormat='Available : {0}'}" FontSize="10" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <!-- This is the menu that shows up when you hold press on an element -->
+                        <!--  <ViewCell.ContextActions>
+                                  <MenuItem Text="Add to Favorite" Clicked="MenuItem_Clicked" CommandParameter="{Binding .}"/>
+                              </ViewCell.ContextActions>    --> 
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+    
+    
+    
+    
+    
+</ContentPage>

@@ -28,16 +28,17 @@ namespace ESIBIB_Student.Views
         public BooksList()
         {
             InitializeComponent();
+            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
         }
 
-        /*protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
-            //base.OnAppearing();
-            //await _connection.CreateTableAsync<Book>();
-            //var books = await _connection.Table<Book>().ToListAsync();
-            //_books = new ObservableCollection<Book>(books);
-            //bookList.ItemsSource = _books;
-        }*/
+            base.OnAppearing();
+            await _connection.CreateTableAsync<Book>();
+            var books = await _connection.Table<Book>().ToListAsync();
+            _books = new ObservableCollection<Book>(books);
+            bookList.ItemsSource = _books;
+        }
 
         private async void bookList_Refreshing(object sender, EventArgs e)
         {

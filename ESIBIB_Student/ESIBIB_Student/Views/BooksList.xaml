@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
+             mc:Ignorable="d" NavigationPage.HasBackButton="False"
              x:Class="ESIBIB_Student.Views.BooksList">
     <!-- This is the search bar that shows on top of the page -->
     <NavigationPage.TitleView>
@@ -26,8 +26,7 @@
                             <Image Source="{Binding Coverurl}" HeightRequest="100"/>
                             <StackLayout HorizontalOptions="StartAndExpand">
                                 <Label Text="{Binding Title}" FontSize="14" FontAttributes="Bold"/>
-                                <Label Text="{Binding Writer}" FontSize="10"/>
-                                <Label Text="{Binding Nbr,StringFormat='Number : {0}'}" FontSize="10" FontAttributes="Bold"/>
+                                <Label Text="{Binding Author}" FontSize="10"/>
                                 <Label Text="{Binding Available,StringFormat='Available : {0}'}" FontSize="10" FontAttributes="Bold"/>
                             </StackLayout>
                         </StackLayout>

@@ -50,23 +50,5 @@ namespace ESIBIB_Student.Persistence
             }
         }
 
-        public async Task<Book> GetBook(int bk_id)
-        {
-            try
-            {
-                var allUsers = await GetAllBooks();
-                await firebase
-                  .Child("Book")
-                  .OnceAsync<Book>();
-                return allUsers.Where(a => a.ID == bk_id).FirstOrDefault();
-            }
-
-            catch (Exception ex)
-            {
-                throw new Exception("GetUsers  Additional information..." + ex, ex);
-            }
-
-        }
-
     }
 }

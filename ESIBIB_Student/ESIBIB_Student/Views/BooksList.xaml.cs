@@ -30,19 +30,20 @@ namespace ESIBIB_Student.Views
             InitializeComponent();
         }
 
-        protected override async void OnAppearing()
+        /*protected override void OnAppearing()
         {
-            base.OnAppearing();
-            await _connection.CreateTableAsync<Book>();
-            var books = await _connection.Table<Book>().ToListAsync();
-            _books = new ObservableCollection<Book>(books);
-            bookList.ItemsSource = _books;
-        }
+            //base.OnAppearing();
+            //await _connection.CreateTableAsync<Book>();
+            //var books = await _connection.Table<Book>().ToListAsync();
+            //_books = new ObservableCollection<Book>(books);
+            //bookList.ItemsSource = _books;
+        }*/
 
         private async void bookList_Refreshing(object sender, EventArgs e)
         {
             var allBOOKs = await firebaseHelper.GetAllBooks();
             bookList.ItemsSource = allBOOKs;
+            bookList.EndRefresh();
         }
 
         private void MenuItem_Clicked(object sender, EventArgs e)

@@ -39,7 +39,7 @@ namespace ESIBIB_Student.Views
             bookList.ItemsSource = _books;
         }
 
-        private async Task bookList_Refreshing(object sender, EventArgs e)
+        private async void bookList_Refreshing(object sender, EventArgs e)
         {
             var allBOOKs = await firebaseHelper.GetAllBooks();
             bookList.ItemsSource = allBOOKs;

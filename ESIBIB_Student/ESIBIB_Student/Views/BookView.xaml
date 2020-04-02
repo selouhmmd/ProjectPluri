@@ -16,7 +16,6 @@
             <BoxView HeightRequest="1" Color="Gray"/>
             <Label Text="{Binding Available, StringFormat='Available Books : {0}'}"/>
             <Label Text="{Binding Nbr,StringFormat='Total Number Of Books : {0}'}"/>
-            <Button Text="Send Request" Clicked="Button_Clicked" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

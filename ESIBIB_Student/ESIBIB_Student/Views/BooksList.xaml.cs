@@ -43,6 +43,9 @@ namespace ESIBIB_Student.Views
         private async void bookList_Refreshing(object sender, EventArgs e)
         {
             var allBOOKs = await firebaseHelper.GetAllBooks();
+            await _connection.DropTableAsync<Book>();
+            await _connection.CreateTableAsync<Book>();
+            await _connection.InsertAllAsync(allBOOKs);
             bookList.ItemsSource = allBOOKs;
             bookList.EndRefresh();
         }

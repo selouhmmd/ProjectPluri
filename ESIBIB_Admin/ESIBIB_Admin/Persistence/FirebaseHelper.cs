@@ -16,11 +16,11 @@ namespace ESIBIB_Student.Persistence
         {
         }
 
-        public async Task AddBook(int id, string Title, string Writer, string Description, string isbn, int available, string coverurl)
+        public async Task AddBook(string Title, string Writer, string Description, string isbn, int available, string coverurl)
         {
             await firebase
               .Child("Book")
-              .PostAsync(new Book() { ID = id, Title = Title, Author = Writer, Description = Description, Available = available, Coverurl = coverurl, ISBN = isbn });
+              .PostAsync(new Book() { Title = Title, Author = Writer, Description = Description, Available = available, Coverurl = coverurl, ISBN = isbn });
 
         }
 
@@ -35,7 +35,6 @@ namespace ESIBIB_Student.Persistence
                .Child("Book")
                .OnceAsync<Book>()).Select(item => new Book
                {
-                   ID = item.Object.ID,
                    Title = item.Object.Title,
                    Author = item.Object.Author,
                    Description = item.Object.Description,

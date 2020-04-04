@@ -50,25 +50,35 @@ namespace ESIBIB_Student.Views
             bookList.EndRefresh();
         }
 
-        private void MenuItem_Clicked(object sender, EventArgs e)
+        private async void MenuItem_Clicked(object sender, EventArgs e)
         {
-
+            var item = sender as MenuItem;
+            Book book = item.CommandParameter as Book;
+            book.isFavorite = true;
+            await _connection.UpdateAsync(book);
         }
 
 
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
+       /* private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
+            await Navigation.PushAsync(new AdvancedSearch()); 
+        }*/
 
-        }
 
-
-        private void bookList_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void bookList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-
+            var book = e.Item as Book;
+            await Navigation.PushAsync(new BookView(book));
         }
 
         private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
+            bookList.ItemsSource = _books.Where(b => (b.Title.ToLower().Contains(e.NewTextValue) || b.Author.ToLower().Contains(e.NewTextValue) || b.Description.ToLower().Contains(e.NewTextValue)));
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            bookList.ItemsSource = _books.Where(b => (b.isFavorite));
 
         }
     }

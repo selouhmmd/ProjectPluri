@@ -11,9 +11,9 @@
     </NavigationPage.TitleView>
     <!-- These Are The Elements of the three dots menu -->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Advanced Search" Order="Secondary" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+        <ToolbarItem Text="Show Favorites Only" Clicked="ToolbarItem_Clicked" Order="Secondary"/>
     </ContentPage.ToolbarItems>
-    <!-- THis is the list of items -->
+     <!--THis is the list of items -->
     <StackLayout>
         <ListView x:Name="bookList" HasUnevenRows="True"
                   ItemTapped="bookList_ItemTapped"
@@ -31,9 +31,9 @@
                             </StackLayout>
                         </StackLayout>
                         <!-- This is the menu that shows up when you hold press on an element -->
-                        <!--  <ViewCell.ContextActions>
-                                  <MenuItem Text="Add to Favorite" Clicked="MenuItem_Clicked" CommandParameter="{Binding .}"/>
-                              </ViewCell.ContextActions>    --> 
+                         <ViewCell.ContextActions>
+                            <MenuItem Text="Add to Favorite" Clicked="MenuItem_Clicked" CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

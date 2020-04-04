@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="{Binding Title,StringFormat='Book Details : {0}'}"
+             Padding="20"
+             x:Class="ESIBIB_Student.Views.BookView">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="{Binding Title}" FontSize="24" FontAttributes="Bold" TextColor="Black"/>
+                <Label Text="{Binding Author}" TextColor="Gray" />
+                <Image Source="{Binding Coverurl}" HeightRequest="400"/>
+                <Label Text="{Binding Description}"/>
+                <BoxView HeightRequest="1" Color="Gray"/>
+                <Label Text="{Binding Available, StringFormat='Available Books : {0}'}"/>
+                <Label Text="{Binding ISBN}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

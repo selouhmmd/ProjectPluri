@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" Title="Advanced Search"
+             x:Class="ESIBIB_Student.Views.AdvancedSearch">
+    <StackLayout>
+        <TableView>
+            <TableRoot>
+                <TableSection>
+                    <TextCell Text="From Title :" TextColor="Black"/>
+                    <EntryCell x:Name="title" Placeholder="Write Something From Title"/>
+                    <TextCell Text="From Description :" TextColor="Black"></TextCell>
+                    <EntryCell x:Name="description" Placeholder="Write A Word From Description"/>
+                    <TextCell Text="Author :" TextColor="Black"/>
+                    <EntryCell x:Name="author" Placeholder="Search Author"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <Button Text="Search" Clicked="Button_Clicked"/>
+    </StackLayout>
+</ContentPage>

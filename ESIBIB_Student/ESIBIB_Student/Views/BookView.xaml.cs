@@ -11,18 +11,14 @@ using Xamarin.Forms.Xaml;
 namespace ESIBIB_Student.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SearchResult : ContentPage
+    public partial class BookView : ContentPage
     {
-        public SearchResult(List<Book> books)
+        public BookView(Book bk)
         {
+            if (bk == null)
+                throw new ArgumentNullException();
             InitializeComponent();
-            bookList.ItemsSource = books;
-        }
-
-        private async void bookList_ItemTapped(object sender, ItemTappedEventArgs e)
-        { 
-            var book = e.Item as Book;
-            await Navigation.PushAsync(new BookView(book));
+            BindingContext = bk;
         }
     }
 }
